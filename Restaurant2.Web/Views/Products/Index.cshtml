@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model List<Restaurant.Web.Models.Entities.Product>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Availability</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr scope="row">
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                @if (@product.Availability)
+                {
+                    <td>Available</td>
+                }
+                else
+                {
+                    <td>Not Available</td>
+                }
+
+                <td><a class="btn btn-primary" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a class=" my-3 btn btn-primary" asp-controller="Products" asp-action="New">Add Product</a>

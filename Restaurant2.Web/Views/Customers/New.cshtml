@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Restaurant.Web.Models.Entities.NewCustomerViewModel
+<h1>Add Customer</h1>
+<form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center">
+    
+    <div>
+        <label class="form-label">Name:</label>
+        <input type="text" class="form-control" asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Surname:</label>
+        <input type="text" class="form-control" asp-for="Surname" />
+    </div>
+
+    <div>
+        <label>E-mail:</label>
+        <input type="text" class="form-control" asp-for="Email" />
+    </div>
+
+    <div>
+        <label>Phone:</label>
+        <input type="text" class="form-control" asp-for="Phone" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Add</button>
+
+</form>
+
