@@ -7,37 +7,57 @@
 
 
 @model Restaurant.Web.Models.Entities.Product
-<form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center">
-    <div>
-        <label class="form-label">ID:</label>
-        <input type="text" class="form-control" asp-for="Id" readonly />
-    </div>
-    <div>
-        <label class="form-label">Name:</label>
-        <input type="text" class="form-control" asp-for="Name" />
-    </div>
+<div class="form-wrapper">
 
-    <div>
-        <label>Description:</label>
-        <input type="text" class="form-control" asp-for="Description" />
-    </div>
+    <form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center rounded">
+        <div>
+            <label class="form-label">ID:</label>
+            <input type="text" class="form-control" asp-for="Id" readonly />
+        </div>
+        <div>
+            <label class="form-label">Name:</label>
+            <input type="text" class="form-control" asp-for="Name" />
+        </div>
 
-    <div>
-        <label>Price:</label>
-        <input type="number" step="0.01" class="form-control" asp-for="Price">
-    </div>
 
-    <div>
-        <label for="Availability">Availability:</label>
-        <input type="checkbox" class="form-check-input" id="Availability" asp-for="Availability" />
-    </div>
-    <div class="d-flex gap-2">
 
-        <button class="btn btn-primary" type="submit">Save</button>
-        <button class="btn btn-danger" type="submit" asp-action="Remove" asp-controller="Products">Delete</button>
-    </div>
-    
+        <div>
+            <label>Description:</label>
+            <!--<input type="text" class="form-control" asp-for="Description" />-->
+            <textarea class="form-control" rows="4" asp-for="Description" ></textarea>
+            
+        </div>
 
-</form>
+
+
+        <div class="row">
+
+            <div class="col-3">
+                <div>
+                    <label>Price:</label>
+                    <input type="number" step="0.01" class="form-control" asp-for="Price">
+                </div>
+            </div>
+            <div class="col-3 py-4 my-2 d-flex gap-2">
+
+                    <label for="Availability">Availability:</label>
+                    <input type="checkbox" class="form-check-input" id="Availability" asp-for="Availability" /> 
+            </div>
+        </div>
+        
+
+        
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-danger" type="submit" asp-action="Remove" asp-controller="Products">Delete</button>
+        </div>
+
+
+    </form>
+
+
+
+</div>
+
 
 
