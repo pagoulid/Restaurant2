@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Restaurant.Web.Data;
@@ -24,9 +25,20 @@ namespace Restaurant.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult New()
-        {
-            ViewData["Customers"] = new SelectList(dbContext.Customers, "Id", "Name");
+        public async Task<IActionResult> New()
+        {    //SelectListItem
+            var customers = dbContext.Customers.Select(c => new 
+            {
+                c.Id,//.ToString(),
+                Name= $"{c.Name} {c.Surname}",  // Concatenate Name and Surname
+                           // Use the Id as the value
+            }).ToList();
+
+            ViewData["Customers"] = new SelectList(customers,"Id","Name");
+
+
+            
+            //ViewData["Customers"] = new SelectList(dbContext.Customers, "Id", "Name","Surname");
             return View();
         }
 
@@ -40,7 +52,7 @@ namespace Restaurant.Web.Controllers
             {
 
                 CustomerId = viewModel.CustomerId,
-                CustomerName = customer.Name,
+                CustomerName = customer.Name +' '+ customer.Surname,
                 Products = viewModel.Products,
                 TotalPrice = viewModel.TotalPrice,
                 OrderDate= viewModel.OrderDate,
@@ -54,6 +66,9 @@ namespace Restaurant.Web.Controllers
         public async Task<IActionResult> Edit(Guid id)
         {
             var order = await dbContext.Orders.FindAsync(id);
+            var customer = await dbContext.Customers.FindAsync(order.CustomerId);
+
+            ViewData["CustomerFullName"] = customer.Name + ' ' + customer.Surname;
             return View(order);
         }
 

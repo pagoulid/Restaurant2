@@ -19,7 +19,8 @@
             </div>
             <div class="col-6">
                 <label class="form-label">Customer Name:</label>
-                <input type="text" class="form-control" asp-for="CustomerName" readonly />
+                <!--<input type="text" class="form-control" asp-for="CustomerName" readonly />-->
+                <input type="text" class="form-control" value='@(ViewData["CustomerFullName"])' readonly />
             </div>
         </div>
         
@@ -40,7 +41,7 @@
 
             <div class="col-6">
                 <label class="form-label">Date:</label>
-                <input type="datetime-local" class="form-control" id="datetime" name="datetime" asp-for="OrderDate" />
+                <input type="datetime-local" class="form-control" id="orderDate" name="OrderDate" asp-for="OrderDate" />
             </div>
 
         </div>
