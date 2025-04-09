@@ -7,30 +7,43 @@
 
 @model Restaurant.Web.Models.Entities.NewProductViewModel
 <h1>Add Product</h1>
-<form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center">
 
-    <div>
-        <label class="form-label">Name:</label>
-        <input type="text" class="form-control" asp-for="Name" />
-    </div>
+<div class="form-wrapper">
+    <form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center">
 
-    <div>
-        <label>Description:</label>
-        <input type="text" class="form-control" asp-for="Description" />
-    </div>
+        <div>
+            <label class="form-label">Name:</label>
+            <input type="text" class="form-control" asp-for="Name" />
+        </div>
 
-    <div>
-        <label>Price:</label>
-        <input type="number" step="0.01" class="form-control" asp-for="Price">
-    </div>
+        <div>
+            <label class="form-label">Description:</label>
+            <!--<input type="text" class="form-control" asp-for="Description" />-->
+            <textarea class="form-control" rows="4" asp-for="Description" ></textarea>
+        </div>
 
-    <div>
-        <label for="Availability">Availability:</label>
-        <input type="checkbox" class="form-check-input" id="Availability" asp-for="Availability" />
-    </div>
+        <div class="row">
 
-    <button class="btn btn-primary" type="submit">Add</button>
+            <div class="col-3">
+                <label class="form-label">Price:</label>
+                <input type="number" step="0.01" class="form-control" asp-for="Price">
+            </div>
+            <!--class="col-3 py-4 my-2 d-flex gap-2"-->
+            <div class="col-3 py-4 my-3 d-flex gap-2">
+                <label class="form-label" for="Availability">Availability:</label>
+                <input type="checkbox" class="form-check-input" id="Availability" asp-for="Availability" />
+            </div>
 
-</form>
+        </div>
+        
+
+        <button class="my-2 btn btn-primary" type="submit">Add</button>
+
+    </form>
+
+
+
+</div>
+
 
 

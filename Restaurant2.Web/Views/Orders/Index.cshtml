@@ -6,35 +6,45 @@
 
 
 @model List<Restaurant.Web.Models.Entities.Order>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Customer</th>
-            <th scope="col">Products</th>
-            <th scope="col">Total</th>
-            <th scope="col">Date</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var order in Model)
-        {
-            <tr scope="row">
-                <td>@order.Id</td>
-                <td>@order.CustomerName</td>
-                <td>@order.Products</td>
-                <td>@order.TotalPrice</td>
-                <td>@order.OrderDate</td>
-                <td>
-                    <a class="btn btn-primary" asp-controller="Orders" asp-action="Edit" asp-route-id="@order.Id">Edit</a>
-                    <!--<span asp-validation-for="OrderDateTime" class="text-danger"></span>-->
-                    
-                </td>
+
+
+<div class="table-wrapper">
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Products</th>
+                <th scope="col">Total</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
             </tr>
-        }
-    </tbody>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr scope="row">
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.Products</td>
+                    <td>@order.TotalPrice</td>
+                    <td>@order.OrderDate</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Orders" asp-action="Edit" asp-route-id="@order.Id">Edit</a>
 
-</table>
 
-<a class=" my-3 btn btn-primary" asp-controller="Orders" asp-action="New" >Add Customer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+    <a class=" my-3 btn btn-primary" asp-controller="Orders" asp-action="New">Add Order</a>
+
+
+
+</div>
+

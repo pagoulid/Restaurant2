@@ -5,29 +5,41 @@
 }
 @model Restaurant.Web.Models.Entities.NewCustomerViewModel
 <h1>Add Customer</h1>
-<form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center">
-    
-    <div>
-        <label class="form-label">Name:</label>
-        <input type="text" class="form-control" asp-for="Name" />
+<div class="form-wrapper">
+<form method="post" class="my-3 d-flex flex-column gap-2 justify-content-center rounded">
+    <div class="row">
+            <div class="col-6 d-flex flex-column gap-2 justify-content-center">
+
+
+                <div>
+                    <label class="form-label">Name:</label>
+                    <input type="text" class="form-control" asp-for="Name" />
+                </div>
+
+                <div>
+                    <label class="form-label">Surname:</label>
+                    <input type="text" class="form-control" asp-for="Surname" />
+                </div>
+            </div>
+            <div class="col-6 d-flex flex-column gap-2 justify-content-center">
+
+                <div>
+                    <label class="form-label">E-mail:</label>
+                    <input type="text" class="form-control" asp-for="Email" />
+                </div>
+
+                <div>
+                    <label class="form-label">Phone:</label>
+                    <input type="text" class="form-control" asp-for="Phone" />
+                </div>
+
+
+            </div>
+
+
     </div>
 
-    <div>
-        <label>Surname:</label>
-        <input type="text" class="form-control" asp-for="Surname" />
-    </div>
-
-    <div>
-        <label>E-mail:</label>
-        <input type="text" class="form-control" asp-for="Email" />
-    </div>
-
-    <div>
-        <label>Phone:</label>
-        <input type="text" class="form-control" asp-for="Phone" />
-    </div>
-
-    <button class="btn btn-primary" type="submit">Add</button>
+    <button class="mt-2 btn btn-primary" type="submit">Add</button>
 
 </form>
-
+</div>
