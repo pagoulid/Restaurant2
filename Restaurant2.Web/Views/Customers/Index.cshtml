@@ -10,7 +10,7 @@
 <div class="table-wrapper">
 
 
-    <table id="customersTable" class="table display">
+    <table id="TableDidplay" class="table display">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -44,7 +44,11 @@
 <script>
     $(document).ready(function () {
         
-        var ctable = new DataTable('#customersTable',{
+        var ctable = new DataTable('#TableDidplay',{
+                        paging:true,
+                        pageLength:3,
+                        lengthMenu: [[3,5, 10, -1], [3,5, 10, "All"]],
+                        lengthChange: true,
         
                         initComplete:(settings,json)=>{
                             console.log('Init Table Completed !')
