@@ -40,10 +40,15 @@ namespace Restaurant.Web.Controllers
                 Phone = viewModel.Phone,
             };
 
+            if (ModelState.IsValid) {
 
-            await dbContext.Customers.AddAsync(customer);
-            await dbContext.SaveChangesAsync();
-            return RedirectToAction("Index", "Customers");
+                await dbContext.Customers.AddAsync(customer);
+                await dbContext.SaveChangesAsync();
+                return RedirectToAction("Index", "Customers");
+
+            }
+            return View(viewModel);
+            
         }
 
         [HttpGet]
@@ -66,12 +71,17 @@ namespace Restaurant.Web.Controllers
 
             var customer = await dbContext.Customers.FindAsync(updateCustomer.Id);
 
-            customer.Name = updateCustomer.Name;
-            customer.Surname = updateCustomer.Surname;
-            customer.Email = updateCustomer.Email;
-            customer.Phone = updateCustomer.Phone;
-            await dbContext.SaveChangesAsync();
-            return RedirectToAction("Index","Customers");
+
+            if (ModelState.IsValid) {
+                customer.Name = updateCustomer.Name;
+                customer.Surname = updateCustomer.Surname;
+                customer.Email = updateCustomer.Email;
+                customer.Phone = updateCustomer.Phone;
+                await dbContext.SaveChangesAsync();
+                return RedirectToAction("Index", "Customers");
+            }
+            return View(updateCustomer);
+            
         }
 
         [HttpPost]

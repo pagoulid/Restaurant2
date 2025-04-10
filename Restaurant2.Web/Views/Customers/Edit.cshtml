@@ -20,18 +20,19 @@
             <div class="col-6 d-flex flex-column gap-2 justify-content-center">
                 <div>
                     <label class="form-label">Name:</label>
-                    <input type="text" class="form-control" asp-for="Name" />
+                    <input type="text" class="form-control" asp-for="Name" readonly />
                 </div>
 
                 <div>
                     <label class="form-label">Surname:</label>
-                    <input type="text" class="form-control" asp-for="Surname" />
+                    <input type="text" class="form-control" asp-for="Surname" readonly />
                 </div>
             </div>
             <div class="col-6 mt-2 d-flex flex-column gap-2 justify-content-cente">
                 <div>
                     <label class="form-label">E-mail:</label>
                     <input type="text" class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div>
