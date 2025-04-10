@@ -10,7 +10,7 @@
 <div class="table-wrapper">
 
 
-    <table class="table">
+    <table id="TableDidplay" class="table display">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -40,5 +40,25 @@
     <a class=" my-3 btn btn-primary" asp-controller="Customers" asp-action="New">Add Customer</a>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        
+        var ctable = new DataTable('#TableDidplay',{
+                        paging:true,
+                        pageLength:3,
+                        lengthMenu: [[3,5, 10, -1], [3,5, 10, "All"]],
+                        lengthChange: true,
+        
+                        initComplete:(settings,json)=>{
+                            console.log('Init Table Completed !')
+                        }
+        
+        })
+    });
+</script>
+
+
+
 
 
