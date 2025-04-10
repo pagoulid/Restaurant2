@@ -31,15 +31,15 @@
 
         <div>
             <label class="form-label"  for="datetime">Date:</label>
-            <input type="datetime-local" class="form-control" id="datetime" name="datetime" asp-for="OrderDate" />
+            <input type="datetime-local" class="form-control" id="OrderDate" name="OrderDate" asp-for="OrderDate" />
         </div>
         <div>
             <label for="status" class="form-label">Status:</label>
 
-            <select name="status" id="status" class="form-control">
-                <option value="1">Σε Εκκρεμότητα</option>
-                <option value="2">Ολοκληρωμένη</option>
-                <option value="3">Ακυρωμένη</option>
+            <select name="status" id="status" class="form-control" asp-for="Status">
+                <option value="Σε Εκκρεμότητα">Σε Εκκρεμότητα</option>
+                <option value="Ολοκληρωμένη">Ολοκληρωμένη</option>
+                <option value="Ακυρωμένη">Ακυρωμένη</option>
 
             </select>
         </div>

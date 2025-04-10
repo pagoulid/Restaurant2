@@ -10,6 +10,8 @@
         public string Products { get; set; }
         public double TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
+
+        public string Status { get; set; }
         public Customer Customer { get; set; } // 1:N relation with shadow foreign key attempt
     }
 }
