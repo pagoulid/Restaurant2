@@ -29,16 +29,13 @@ namespace Restaurant.Web.Controllers
         {    //SelectListItem
             var customers = dbContext.Customers.Select(c => new 
             {
-                c.Id,//.ToString(),
+                c.Id,
                 Name= $"{c.Name} {c.Surname}",  // Concatenate Name and Surname
                            // Use the Id as the value
             }).ToList();
 
             ViewData["Customers"] = new SelectList(customers,"Id","Name");
 
-
-            
-            //ViewData["Customers"] = new SelectList(dbContext.Customers, "Id", "Name","Surname");
             return View();
         }
 
@@ -56,7 +53,8 @@ namespace Restaurant.Web.Controllers
                 Products = viewModel.Products,
                 TotalPrice = viewModel.TotalPrice,
                 OrderDate= viewModel.OrderDate,
-                Customer=customer
+                Status= viewModel.Status,
+                Customer =customer
             };
             await dbContext.Orders.AddAsync(order);
             await dbContext.SaveChangesAsync();
@@ -85,6 +83,7 @@ namespace Restaurant.Web.Controllers
             order.Products = updateOrder.Products;
             order.TotalPrice = updateOrder.TotalPrice;
             order.OrderDate = updateOrder.OrderDate;
+            order.Status = updateOrder.Status;
             await dbContext.SaveChangesAsync();
             return RedirectToAction("Index", "Orders");
         }
